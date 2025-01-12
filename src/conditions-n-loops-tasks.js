@@ -65,8 +65,19 @@ function getMaxNumber(a, b, c) {
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  */
-function canQueenCaptureKing(/* queen, king */) {
-  throw new Error('Not implemented');
+function canQueenCaptureKing(queen, king) {
+  const qRow = queen.x;
+  const qCol = queen.y;
+  const kRow = king.x;
+  const kCol = king.y;
+
+  if (qRow === kRow || qCol === kCol) {
+    return true;
+  }
+  if (Math.abs(qRow - kRow) === Math.abs(qCol - kCol)) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -297,6 +308,23 @@ function sortByAsc(/* arr */) {
  */
 function shuffleChar(/* str, iterations */) {
   throw new Error('Not implemented');
+  /* if (iterations < 1) return str;
+  const l = str.length;
+  const iterations1 = iterations % 12;
+  let res = str;
+  for (let iter = 0; iter < iterations1; iter += 1) {
+    let evenChars = '';
+    let oddChars = '';
+    for (let i = 0; i < l; i += 1) {
+      if (i % 2 === 0) {
+        evenChars += res[i];
+      } else {
+        oddChars += res[i];
+      }
+    }
+    res = evenChars + oddChars;
+  }
+  return res; */
 }
 
 /**
